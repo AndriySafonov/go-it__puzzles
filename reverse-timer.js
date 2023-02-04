@@ -32,11 +32,13 @@ function countDownTimeToNY() {
 function startTimer() {
   intervalId = setInterval(countDownTimeToNY, 1000);
 }
+
 //  оcстановити таймер по натисканню на кнопку стоп
 function stopTimer() {
   clearInterval(intervalId);
   alert('The timer has been stopped!');
 }
+
 //  добавляем 0 к часам минутам и секундам
 function addZero(number) {
   return String(number).padStart(2, 0);
