@@ -6,6 +6,7 @@ const startBtn = document.getElementById('startBtn');
 //  задати дату наступного Нового року (поточний рік + 1)
 const countDownDate = new Date(`Jan 1, ${new Date().getFullYear() + 1}`);
 
+
 let intervalId = setInterval(countDownTimeToNY, 1000);
 
 stopBtn.addEventListener('click', stopTimer);
@@ -30,16 +31,21 @@ function countDownTimeToNY() {
   )} m. ${addZero(seconds)} s.`;
 }
 function startTimer() {
+  startBtn.disabled = true;
+  stopBtn.disabled = false;
   intervalId = setInterval(countDownTimeToNY, 1000);
 }
 
 //  оcстановити таймер по натисканню на кнопку стоп
 function stopTimer() {
+  stopBtn.disabled = true;
+  startBtn.disabled = false;
   clearInterval(intervalId);
-  alert('The timer has been stopped!');
+  // alert('The timer has been stopped!');
 }
 
 //  добавляем 0 к часам минутам и секундам
 function addZero(number) {
   return String(number).padStart(2, 0);
+  // alert('The timer has been started!');
 }
